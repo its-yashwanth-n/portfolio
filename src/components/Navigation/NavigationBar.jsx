@@ -9,7 +9,7 @@ import { Link } from "react-scroll";
 import { Box, Slide, useMediaQuery, useTheme } from "@mui/material";
 import { Logo } from "./Logo";
 import { ModeContext } from "../../App";
-import { DARK_THEME } from "../../assets/common/commonProperties";
+import { DARK_THEME } from "../common/CommonConstants";
 import {
   PRIMARY_GREY_TEXT,
   OtherFont,
@@ -22,7 +22,7 @@ import {
   SECONDARY_BGD_COLOR,
   PRIMARY_TXT_COLOR,
   SECONDARY_GREY_TEXT,
-} from "../common/commonStyles";
+} from "../common/CommonStyles";
 
 export const NavigationBar = () => {
   const { colorMode, isNavOpen, setNavOpen } = useContext(ModeContext);
@@ -174,7 +174,7 @@ export const NavigationBar = () => {
         mountOnEnter
         unmountOnExit
       >
-        <SideNav id="navAside" colorMode={colorMode} open={isNavOpen}>
+        <SideNav id="mobile-nav-aside" colorMode={colorMode} open={isNavOpen}>
           <MobileNav>
             {navRoutes.map((navElement) => (
               <>

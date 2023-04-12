@@ -1,5 +1,5 @@
 import { Grid, Paper, Typography } from "@mui/material";
-import { HomeContainer, HomeElement } from "../../common/commonStyles";
+import { HomeElement } from "../../common/CommonStyles";
 
 export const Contact = ({ height }) => {
   return (

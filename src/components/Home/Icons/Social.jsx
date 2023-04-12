@@ -1,35 +1,36 @@
 import React from "react";
 import { IconContext } from "react-icons";
-import { IconsDiv, ListItems, StyledList } from "../../common/commonStyles";
+import { IconsDiv, ListItems, StyledList } from "../../common/CommonStyles";
 import {
   LAPTOP_SIZE,
-  githubID,
-  githubLabel,
-  linkedInID,
-  linkedInLabel,
-} from "../../../assets/common/commonProperties";
-import { SocialIcons } from "../../common/Icons";
-import { Github_Link, LinkedIn_Link } from "../../../assets/common/commonLinks";
+  GITHUB_LINK,
+  LINKEDIN_LINK,
+  GITHUB_LABEL,
+  LINKEDIN_LABEL,
+  githubId,
+  linkedInId,
+} from "../../common/CommonConstants";
+import { SocialIcons } from "./Icons";
 
 const Social = () => {
   return (
-    <IconsDiv id="socialDiv" orientation="left">
+    <IconsDiv id="social-icons-div" orientation="left">
       <StyledList>
         <IconContext.Provider value={{ className: "shared-class", size: 26 }}>
           <ListItems>
             <SocialIcons
-              iconId={linkedInID}
-              iconLink={LinkedIn_Link}
+              iconId={linkedInId}
+              iconLink={LINKEDIN_LINK}
               iconSize={LAPTOP_SIZE}
-              ariaLabel={linkedInLabel}
+              ariaLabel={LINKEDIN_LABEL}
             />
           </ListItems>
           <ListItems>
             <SocialIcons
-              iconId={githubID}
-              iconLink={Github_Link}
+              iconId={githubId}
+              iconLink={GITHUB_LINK}
               iconSize={LAPTOP_SIZE}
-              ariaLabel={githubLabel}
+              ariaLabel={GITHUB_LABEL}
             />
           </ListItems>
         </IconContext.Provider>

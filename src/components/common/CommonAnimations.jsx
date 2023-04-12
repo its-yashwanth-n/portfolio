@@ -1,6 +1,6 @@
 import { css, keyframes } from "styled-components";
 
-export const jelloHorz = keyframes`
+export const JelloHorz = keyframes`
 0% {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
@@ -31,7 +31,7 @@ export const jelloHorz = keyframes`
 }
 `;
 
-const slideInBottom = keyframes`
+const SlideInBottom = keyframes`
 0% {
   -webkit-transform: translateY(1000px);
   transform: translateY(1000px);
@@ -43,11 +43,11 @@ const slideInBottom = keyframes`
   opacity: 1;
 `;
 
-export const slideInBtmAmt = css`
-  ${slideInBottom} 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+export const SlideInBtmAmt = css`
+  ${SlideInBottom} 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
 `;
 
-export const puffOutCenter = keyframes`
+export const PuffOutCenter = keyframes`
 0% {
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -63,7 +63,7 @@ export const puffOutCenter = keyframes`
   opacity: 0;
 }`;
 
-export const pulsateForward = keyframes`
+export const PulsateForward = keyframes`
 0% {
   -webkit-transform: scale(1);
   transform: scale(1);

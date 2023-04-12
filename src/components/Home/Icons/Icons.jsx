@@ -1,15 +1,22 @@
 import React, { useContext, useState } from "react";
-import { ModeContext } from "../../App";
+import { ModeContext } from "../../../App";
 import styled from "styled-components";
-import { PRIMARY_TXT_COLOR, SECONDARY_TXT_COLOR } from "./commonStyles";
 import {
+  PRIMARY_TXT_COLOR,
+  SECONDARY_TXT_COLOR,
+} from "../../common/CommonStyles";
+import {
+  DARK_MODE_LABEL,
   DARK_THEME,
+  LIGHT_MODE_LABEL,
   LIGHT_THEME,
+  MUSIC_LABEL,
+  MUTE_LABEL,
   emailID,
-  githubID,
-  linkedInID,
+  githubId,
+  linkedInId,
   phoneID,
-} from "../../assets/common/commonProperties";
+} from "../../common/CommonConstants";
 import {
   FiGithub,
   FiLinkedin,
@@ -20,7 +27,7 @@ import {
 } from "react-icons/fi";
 import { BsSoundwave } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
-import { puffOutCenter, pulsateForward } from "./commonAnimations";
+import { PuffOutCenter, PulsateForward } from "../../common/CommonAnimations";
 
 export const SocialIcons = ({ iconId, iconLink, iconSize, ariaLabel }) => {
   const { colorMode } = useContext(ModeContext);
@@ -32,8 +39,8 @@ export const SocialIcons = ({ iconId, iconLink, iconSize, ariaLabel }) => {
       aria-label={ariaLabel}
       target="_blank"
     >
-      {iconId === linkedInID && <FiLinkedin size={iconSize} />}
-      {iconId === githubID && <FiGithub size={iconSize} />}
+      {iconId === linkedInId && <FiLinkedin size={iconSize} />}
+      {iconId === githubId && <FiGithub size={iconSize} />}
       {iconId === emailID && <AiOutlineMail size={iconSize} />}
       {iconId === phoneID && <FiPhoneCall size={iconSize} />}
     </LinkNoStyle>
@@ -58,11 +65,11 @@ export const SoundIcon = ({ iconSize, ariaLabel }) => {
   }
   return (
     <SoundButton
-      id="soundIcon"
+      id="sound-icon"
       colorMode={colorMode}
       onClick={playMusic}
       isPlaying={music}
-      aria-label={ariaLabel}
+      aria-label={music ? MUTE_LABEL : MUSIC_LABEL}
     >
       {!music && <FiMusic size={iconSize} />}
       {music && <BsSoundwave size={iconSize} />}
@@ -70,7 +77,7 @@ export const SoundIcon = ({ iconSize, ariaLabel }) => {
   );
 };
 
-export const ThemeIcon = ({ iconSize, ariaLabel }) => {
+export const ThemeIcon = ({ iconSize }) => {
   const { colorMode, setColorMode } = useContext(ModeContext);
   function handleThemeToggle(e) {
     e.preventDefault();
@@ -78,10 +85,10 @@ export const ThemeIcon = ({ iconSize, ariaLabel }) => {
   }
   return (
     <ThemeButton
-      id="themeIcon"
+      id="theme-icon"
       colorMode={colorMode}
       onClick={handleThemeToggle}
-      aria-label={ariaLabel}
+      aria-label={colorMode === DARK_THEME ? LIGHT_MODE_LABEL : DARK_MODE_LABEL}
     >
       {colorMode === LIGHT_THEME && <FiMoon size={iconSize} />}
       {colorMode === DARK_THEME && <FiSun size={iconSize} />}
@@ -101,16 +108,16 @@ const CommonIconButton = styled.button`
 
 const SoundButton = styled(CommonIconButton)`
   &:hover {
-    -webkit-animation: ${pulsateForward} 0.8s ease-in-out infinite both;
-    animation: ${pulsateForward} 0.8s ease-in-out infinite both;
+    -webkit-animation: ${PulsateForward} 0.8s ease-in-out infinite both;
+    animation: ${PulsateForward} 0.8s ease-in-out infinite both;
   }
 `;
 
 const ThemeButton = styled(CommonIconButton)`
   &:active {
-    -webkit-animation: ${puffOutCenter} 1.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+    -webkit-animation: ${PuffOutCenter} 1.5s cubic-bezier(0.165, 0.84, 0.44, 1)
       both;
-    animation: ${puffOutCenter} 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+    animation: ${PuffOutCenter} 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
   }
   transition: background-color 2s ease;
 `;
@@ -122,8 +129,8 @@ const LinkNoStyle = styled.a`
   color: ${(props) =>
     props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   &:hover {
-    -webkit-animation: ${pulsateForward} 0.8s ease-in-out infinite both;
-    animation: ${pulsateForward} 0.8s ease-in-out infinite both;
+    -webkit-animation: ${PulsateForward} 0.8s ease-in-out infinite both;
+    animation: ${PulsateForward} 0.8s ease-in-out infinite both;
   }
   &#linkedinIcon:hover {
     color: #0177b5;

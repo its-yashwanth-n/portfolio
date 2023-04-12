@@ -1,8 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Element, Link as ScrollLink } from "react-scroll";
 import styled from "styled-components";
-import { DARK_THEME } from "../../assets/common/commonProperties";
-import { slideInBtmAmt } from "./commonAnimations";
+import { DARK_THEME } from "./CommonConstants";
+import { SlideInBtmAmt } from "./CommonAnimations";
 
 // primary text and background colors for the website
 export const PRIMARY_BGD_COLOR = "#15181C";
@@ -114,8 +114,8 @@ export const IconsDiv = styled.div`
     position: fixed;
     bottom: 0px;
     padding-bottom: 3.5vh;
-    -webkit-animation: ${slideInBtmAmt};
-    animation: ${slideInBtmAmt};
+    -webkit-animation: ${SlideInBtmAmt};
+    animation: ${SlideInBtmAmt};
   }
   display: none;
 `;

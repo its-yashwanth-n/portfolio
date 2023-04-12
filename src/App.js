@@ -3,13 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { Home } from "./pages/Home";
 import { createContext, useState } from "react";
-import { DARK_THEME } from "./assets/common/commonProperties";
+import { DARK_THEME } from "./components/common/CommonConstants";
 import {
   SECONDARY_TXT_COLOR,
   PRIMARY_BGD_COLOR,
   SECONDARY_BGD_COLOR,
   PRIMARY_TXT_COLOR,
-} from "./components/common/commonStyles";
+} from "./components/common/CommonStyles";
 
 export const ModeContext = createContext();
 

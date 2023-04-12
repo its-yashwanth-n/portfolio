@@ -2,8 +2,8 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { Grid, Typography } from "@mui/material";
 import { ModeContext } from "../../../App";
-import { DARK_THEME } from "../../../assets/common/commonProperties";
-import { jelloHorz } from "../../common/commonAnimations";
+import { DARK_THEME } from "../../common/CommonConstants";
+import { JelloHorz } from "../../common/CommonAnimations";
 import {
   BLUE_COLOR,
   ColorText,
@@ -15,7 +15,7 @@ import {
   SECONDARY_TXT_COLOR,
   SECONDARY_GREY_TEXT,
   HomeElement,
-} from "../../common/commonStyles";
+} from "../../common/CommonStyles";
 
 export const Intro = ({ height }) => {
   const { colorMode } = useContext(ModeContext);
@@ -72,7 +72,7 @@ export const Intro = ({ height }) => {
               lg: "4.5rem",
             }}
           >
-            Software Engineer
+            A Software Engineer
           </IntroText>
           <SubText colorMode={colorMode} margin="15px 0px">
             Lorem ipsum dolor sit amet. Ut excepturi culpa ut recusandae vitae
@@ -100,8 +100,8 @@ const NameSpan = styled.span`
   && {
     &:hover {
       display: inline-flex;
-      -webkit-animation: ${jelloHorz} 0.8s both;
-      animation: ${jelloHorz} 0.8s both;
+      -webkit-animation: ${JelloHorz} 0.8s both;
+      animation: ${JelloHorz} 0.8s both;
       color: ${(props) =>
         props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
     }

@@ -4,9 +4,9 @@ import {
   NoStyleLink,
   PRIMARY_TXT_COLOR,
   SECONDARY_TXT_COLOR,
-} from "../common/commonStyles";
+} from "../common/CommonStyles";
 import { ModeContext } from "../../App";
-import { DARK_THEME } from "../../assets/common/commonProperties";
+import { DARK_THEME } from "../common/CommonConstants";
 import DarkLogo from "../../assets/images/Dark_Logo.svg";
 import LightLogo from "../../assets/images/Light_Logo.svg";
 import styled from "styled-components";
@@ -20,7 +20,7 @@ export const Logo = ({ isMobileDevice }) => {
       to="intro"
       smooth={true}
       duration={500}
-      id="logoLink"
+      id="logo-link"
       tabIndex={1}
     >
       <LogoImage

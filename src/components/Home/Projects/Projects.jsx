@@ -1,5 +1,5 @@
 import { Grid, Paper, Typography } from "@mui/material";
-import { HomeElement } from "../../common/commonStyles";
+import { HomeElement } from "../../common/CommonStyles";
 
 export const Projects = ({ height }) => {
   return (

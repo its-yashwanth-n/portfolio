@@ -2,11 +2,11 @@ import { Container, Grid } from "@mui/material";
 import styled, { keyframes } from "styled-components";
 import { ModeContext } from "../../../App";
 import { useContext } from "react";
-import { DARK_THEME } from "../../../assets/common/commonProperties";
+import { DARK_THEME } from "../../common/CommonConstants";
 import {
   PRIMARY_TXT_COLOR,
   SECONDARY_TXT_COLOR,
-} from "../../common/commonStyles";
+} from "../../common/CommonStyles";
 
 export const ScrollIndicator = ({ height }) => {
   const { colorMode } = useContext(ModeContext);
