@@ -12,10 +12,10 @@ import {
   LIGHT_THEME,
   MUSIC_LABEL,
   MUTE_LABEL,
-  emailID,
+  emailId,
   githubId,
   linkedInId,
-  phoneID,
+  phoneId,
 } from "../../common/CommonConstants";
 import {
   FiGithub,
@@ -41,8 +41,8 @@ export const SocialIcons = ({ iconId, iconLink, iconSize, ariaLabel }) => {
     >
       {iconId === linkedInId && <FiLinkedin size={iconSize} />}
       {iconId === githubId && <FiGithub size={iconSize} />}
-      {iconId === emailID && <AiOutlineMail size={iconSize} />}
-      {iconId === phoneID && <FiPhoneCall size={iconSize} />}
+      {iconId === emailId && <AiOutlineMail size={iconSize} />}
+      {iconId === phoneId && <FiPhoneCall size={iconSize} />}
     </LinkNoStyle>
   );
 };
