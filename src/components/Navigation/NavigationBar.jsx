@@ -9,7 +9,16 @@ import { Link } from "react-scroll";
 import { Box, Slide, useMediaQuery, useTheme } from "@mui/material";
 import { Logo } from "./Logo";
 import { ModeContext } from "../../App";
-import { DARK_THEME } from "../common/CommonConstants";
+import {
+  DARK_THEME,
+  LINKEDIN_LABEL,
+  GITHUB_LABEL,
+  LINKEDIN_LINK,
+  MOBILE_SIZE,
+  GITHUB_LINK,
+  linkedInId,
+  githubId,
+} from "../common/CommonConstants";
 import {
   PRIMARY_GREY_TEXT,
   OtherFont,
@@ -23,6 +32,7 @@ import {
   PRIMARY_TXT_COLOR,
   SECONDARY_GREY_TEXT,
 } from "../common/CommonStyles";
+import { SocialIcons, SoundIcon, ThemeIcon } from "../common/Icons";
 
 export const NavigationBar = () => {
   const { colorMode, isNavOpen, setNavOpen } = useContext(ModeContext);
@@ -122,7 +132,7 @@ export const NavigationBar = () => {
         position="fixed"
         // component="nav"
       >
-        <Container maxWidth="xl" sx={{ height: "fit-content" }}>
+        <NavContainer maxWidth="inherit" sx={{ height: "fit-content" }}>
           <Toolbar disableGutters>
             <Logo isMobileDevice={isMd} />
             <StyledBox sx={{ display: { xs: "flex", md: "none" } }}>
@@ -165,7 +175,7 @@ export const NavigationBar = () => {
               ))}
             </StyledBox>
           </Toolbar>
-        </Container>
+        </NavContainer>
       </StyledAppBar>
       <Slide
         id="mobile-navigation-bar"
@@ -199,6 +209,22 @@ export const NavigationBar = () => {
                 </NavText>
               </>
             ))}
+            <IconContainer id="mobile-icons-div">
+              <SocialIcons
+                iconId={linkedInId}
+                iconLink={LINKEDIN_LINK}
+                iconSize={MOBILE_SIZE}
+                ariaLabel={LINKEDIN_LABEL}
+              />
+              <SocialIcons
+                iconId={githubId}
+                iconLink={GITHUB_LINK}
+                iconSize={MOBILE_SIZE}
+                ariaLabel={GITHUB_LABEL}
+              />
+              <ThemeIcon iconSize={MOBILE_SIZE} />
+              <SoundIcon iconSize={MOBILE_SIZE} />
+            </IconContainer>
           </MobileNav>
         </SideNav>
       </Slide>
@@ -212,6 +238,10 @@ const StyledAppBar = styled(AppBar)`
     background-color: transparent;
     background-filter: blur(10px);
   }
+`;
+
+const NavContainer = styled(Container)`
+  padding: 0vh 2.5vw !important;
 `;
 
 const StyledBox = styled(Box)`
@@ -260,14 +290,12 @@ const SideNav = styled.aside`
     @media (min-width: 900px) {
       display: none;
     }
-    @media (min-width: 465px) {
-      width: 60%;
-    }
   }
 `;
 
 const MobileNav = styled.nav`
   display: inline-flex;
+  -webkit-display: inline-flex;
   -moz-box-pack: justify;
   -moz-box-align: center;
   align-items: center;
@@ -278,4 +306,12 @@ const MobileNav = styled.nav`
 const Span = styled.span`
   color: ${(props) =>
     props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
+`;
+
+const IconContainer = styled(Container)`
+  && {
+    display: flex;
+    justify-content: center;
+    gap: 6vw;
+  }
 `;

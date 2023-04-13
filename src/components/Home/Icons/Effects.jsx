@@ -1,16 +1,12 @@
 import React from "react";
 import { IconContext } from "react-icons";
-import { SoundIcon, ThemeIcon } from "./Icons";
+import { SoundIcon, ThemeIcon } from "../../common/Icons";
 import { IconsDiv, ListItems, StyledList } from "../../common/CommonStyles";
 import { LAPTOP_SIZE } from "../../common/CommonConstants";
 
 const Effect = () => {
   return (
-    <IconsDiv
-      style={{ right: "40px" }}
-      id="effect-icons-div"
-      orientation="right"
-    >
+    <IconsDiv style={{ right: "40px" }} id="effect-icons" orientation="right">
       <StyledList>
         <IconContext.Provider value={{ className: "shared-class", size: 26 }}>
           <ListItems>

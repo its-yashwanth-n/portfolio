@@ -10,11 +10,11 @@ import {
   githubId,
   linkedInId,
 } from "../../common/CommonConstants";
-import { SocialIcons } from "./Icons";
+import { SocialIcons } from "../../common/Icons";
 
 const Social = () => {
   return (
-    <IconsDiv id="social-icons-div" orientation="left">
+    <IconsDiv id="social-icons" orientation="left">
       <StyledList>
         <IconContext.Provider value={{ className: "shared-class", size: 26 }}>
           <ListItems>

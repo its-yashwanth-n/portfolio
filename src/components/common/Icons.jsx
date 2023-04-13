@@ -1,10 +1,7 @@
 import React, { useContext, useState } from "react";
-import { ModeContext } from "../../../App";
+import { ModeContext } from "../../App";
 import styled from "styled-components";
-import {
-  PRIMARY_TXT_COLOR,
-  SECONDARY_TXT_COLOR,
-} from "../../common/CommonStyles";
+import { PRIMARY_TXT_COLOR, SECONDARY_TXT_COLOR } from "./CommonStyles";
 import {
   DARK_MODE_LABEL,
   DARK_THEME,
@@ -16,7 +13,7 @@ import {
   githubId,
   linkedInId,
   phoneId,
-} from "../../common/CommonConstants";
+} from "./CommonConstants";
 import {
   FiGithub,
   FiLinkedin,
@@ -27,7 +24,7 @@ import {
 } from "react-icons/fi";
 import { BsSoundwave } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
-import { PuffOutCenter, PulsateForward } from "../../common/CommonAnimations";
+import { PuffOutCenter, PulsateForward } from "./CommonAnimations";
 
 export const SocialIcons = ({ iconId, iconLink, iconSize, ariaLabel }) => {
   const { colorMode } = useContext(ModeContext);
@@ -118,6 +115,10 @@ const ThemeButton = styled(CommonIconButton)`
     -webkit-animation: ${PuffOutCenter} 1.5s cubic-bezier(0.165, 0.84, 0.44, 1)
       both;
     animation: ${PuffOutCenter} 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  }
+  &:hover {
+    -webkit-animation: ${PulsateForward} 0.8s ease-in-out infinite both;
+    animation: ${PulsateForward} 0.8s ease-in-out infinite both;
   }
   transition: background-color 2s ease;
 `;

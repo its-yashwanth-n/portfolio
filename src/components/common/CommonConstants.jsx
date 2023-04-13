@@ -1,7 +1,7 @@
 export const DARK_THEME = "dark";
 export const LIGHT_THEME = "light";
 
-export const MOBILE_SIZE = 24;
+export const MOBILE_SIZE = 30;
 export const LAPTOP_SIZE = 26;
 
 export const GITHUB_LABEL = "GitHub";

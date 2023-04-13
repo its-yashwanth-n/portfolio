@@ -69,8 +69,8 @@ export const PulsateForward = keyframes`
   transform: scale(1);
 }
 50% {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }
 100% {
   -webkit-transform: scale(1);
