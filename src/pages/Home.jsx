@@ -1,3 +1,4 @@
+import React from "react";
 import { NavigationBar } from "../components/Navigation/NavigationBar";
 import { Contact } from "../components/Home/Contact/Contact";
 import { Experience } from "../components/Home/Experience/Experience";
@@ -13,7 +14,7 @@ import Footer from "../components/Footer/Footer";
 
 export const Home = () => {
   return (
-    <>
+    <React.Fragment>
       <NavigationBar />
       <Social />
       <Effect />
@@ -26,7 +27,7 @@ export const Home = () => {
         <Contact height={"100vh"} />
       </MainContainer>
       <Footer />
-    </>
+    </React.Fragment>
   );
 };
 

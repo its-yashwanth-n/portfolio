@@ -21,7 +21,7 @@ import {
 export const Intro = ({ height }) => {
   const { colorMode } = useContext(ModeContext);
   const introString = ["I", "'", "m"];
-  const nameString = ["Y", "a", "s", "h", "w", "a", "n", "t", "h", ","];
+  const nameString = ["Y", "a", "s", "h", "w", "a", "n", "t", "h", ",", " a"];
 
   return (
     <HomeElement id="intro-section" name="intro" style={{ height: height }}>
@@ -35,19 +35,19 @@ export const Intro = ({ height }) => {
           <ColorText
             colorMode={colorMode}
             fontSize={{
-              xs: "1.5rem",
-              sm: "1.75rem",
+              xs: "1.75rem",
+              sm: "2rem",
               md: "2.25rem",
               lg: "3rem",
             }}
           >
-            Hello There.
+            Hello there.
           </ColorText>
           <IntroText
             component="h1"
             fontSize={{
               xs: "2.25rem",
-              sm: "2.625rem",
+              sm: "2.375rem",
               md: "3.375rem",
               lg: "4.5rem",
             }}
@@ -68,12 +68,12 @@ export const Intro = ({ height }) => {
             colorMode={colorMode}
             fontSize={{
               xs: "2.25rem",
-              sm: "2.625rem",
+              sm: "2.375rem",
               md: "3.375rem",
               lg: "4.5rem",
             }}
           >
-            A Software Engineer
+            Software Engineer
           </IntroText>
           <SubText colorMode={colorMode} margin="1.2vh 0px">
             {" "}

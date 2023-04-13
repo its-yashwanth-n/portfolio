@@ -42,9 +42,12 @@ export const MyTypography = styled(Typography)`
 export const GeneralText = styled(Typography)`
   && {
     font-family: ${PRIMARY_FONT};
-    font-size: 16px;
+    font-size: 14px;
     @media (min-width: 900px) {
       font-size: 18px;
+    }
+    @media (min-width: 450px) {
+      font-size: 16px;
     }
     color: ${(props) =>
       props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
@@ -53,9 +56,12 @@ export const GeneralText = styled(Typography)`
 
 export const GeneralLink = styled.a`
   && {
-    font-size: 16px;
+    font-size: 14px;
     @media (min-width: 900px) {
       font-size: 18px;
+    }
+    @media (min-width: 450px) {
+      font-size: 16px;
     }
     text-decoration: none;
     cursor: pointer;
@@ -104,8 +110,6 @@ export const MyButton = styled(Button)`
       props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
     border: 3px solid
       ${(props) => (props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR)};
-    background-color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_BGD_COLOR : SECONDARY_BGD_COLOR};
     &:hover {
       background-color: ${(props) =>
         props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};

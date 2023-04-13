@@ -68,18 +68,20 @@ export const SoundIcon = ({ iconSize, ariaLabel }) => {
       isPlaying={music}
       aria-label={music ? MUTE_LABEL : MUSIC_LABEL}
     >
-      {!music && <FiMusic size={iconSize} />}
-      {music && <BsSoundwave size={iconSize} />}
+      {!music ? <FiMusic size={iconSize} /> : <BsSoundwave size={iconSize} />}
     </SoundButton>
   );
 };
 
 export const ThemeIcon = ({ iconSize }) => {
   const { colorMode, setColorMode } = useContext(ModeContext);
-  function handleThemeToggle(e) {
+
+  const handleThemeToggle = (e) => {
     e.preventDefault();
-    setColorMode(colorMode === LIGHT_THEME ? DARK_THEME : LIGHT_THEME);
-  }
+    const newColor = colorMode === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
+    setColorMode(newColor);
+  };
+
   return (
     <ThemeButton
       id="theme-icon"
@@ -87,8 +89,11 @@ export const ThemeIcon = ({ iconSize }) => {
       onClick={handleThemeToggle}
       aria-label={colorMode === DARK_THEME ? LIGHT_MODE_LABEL : DARK_MODE_LABEL}
     >
-      {colorMode === LIGHT_THEME && <FiMoon size={iconSize} />}
-      {colorMode === DARK_THEME && <FiSun size={iconSize} />}
+      {colorMode === LIGHT_THEME ? (
+        <FiMoon size={iconSize} />
+      ) : (
+        <FiSun size={iconSize} />
+      )}
     </ThemeButton>
   );
 };

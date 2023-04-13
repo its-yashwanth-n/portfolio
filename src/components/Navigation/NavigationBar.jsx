@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Sling as Hamburger } from "hamburger-react";
 import { navRoutes } from "./navRoutes";
 import { Link } from "react-scroll";
-import { Box, Slide, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Slide, useMediaQuery } from "@mui/material";
 import { Logo } from "./Logo";
 import { ModeContext } from "../../App";
 import {
@@ -36,8 +36,7 @@ import { SocialIcons, SoundIcon, ThemeIcon } from "../common/Icons";
 
 export const NavigationBar = () => {
   const { colorMode, isNavOpen, setNavOpen } = useContext(ModeContext);
-  const theme = useTheme();
-  const isMd = useMediaQuery(() => theme.breakpoints.down("md"));
+  const isMobile = !useMediaQuery("(min-width:900px)");
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const elementArray = [
@@ -75,12 +74,12 @@ export const NavigationBar = () => {
 
   //blur other elements when mobile nav bar is active
   useEffect(() => {
-    if (isMd && isNavOpen) {
+    if (isMobile && isNavOpen) {
       elementArray.map((ele) => handleBlur(ele, "blur(4px)"));
     } else {
       elementArray.map((ele) => handleBlur(ele, "none"));
     }
-  }, [isMd, isNavOpen, handleBlur]);
+  }, [isMobile, isNavOpen, handleBlur]);
 
   // to close nav bar on scroll in mobile
   useEffect(() => {
@@ -126,7 +125,7 @@ export const NavigationBar = () => {
   }, [scrollPosition]);
 
   return (
-    <>
+    <React.Fragment>
       <StyledAppBar
         id="navigation-bar"
         position="fixed"
@@ -134,7 +133,7 @@ export const NavigationBar = () => {
       >
         <NavContainer maxWidth="inherit" sx={{ height: "fit-content" }}>
           <Toolbar disableGutters>
-            <Logo isMobileDevice={isMd} />
+            <Logo isMobileDevice={isMobile} />
             <StyledBox sx={{ display: { xs: "flex", md: "none" } }}>
               <Hamburger
                 id="mobile-hamburger-icon"
@@ -187,7 +186,7 @@ export const NavigationBar = () => {
         <SideNav id="mobile-nav-aside" colorMode={colorMode} open={isNavOpen}>
           <MobileNav>
             {navRoutes.map((navElement) => (
-              <>
+              <React.Fragment>
                 <NavText
                   key={navElement.id}
                   colorMode={colorMode}
@@ -207,7 +206,7 @@ export const NavigationBar = () => {
                     <Span colorMode={colorMode}>( )</Span>
                   </HomeLink>
                 </NavText>
-              </>
+              </React.Fragment>
             ))}
             <IconContainer id="mobile-icons-div">
               <SocialIcons
@@ -228,7 +227,7 @@ export const NavigationBar = () => {
           </MobileNav>
         </SideNav>
       </Slide>
-    </>
+    </React.Fragment>
   );
 };
 
@@ -289,6 +288,9 @@ const SideNav = styled.aside`
     box-shadow: -10px 0px 30px -15px ${(props) => (props.colorMode === DARK_THEME ? PRIMARY_BGD_COLOR : SECONDARY_BGD_COLOR)};
     @media (min-width: 900px) {
       display: none;
+    }
+    @media (min-width: 465px) {
+      width: 60%;
     }
   }
 `;
