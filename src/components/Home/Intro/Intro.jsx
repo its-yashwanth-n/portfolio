@@ -15,6 +15,7 @@ import {
   SECONDARY_TXT_COLOR,
   SECONDARY_GREY_TEXT,
   HomeElement,
+  GeneralText,
 } from "../../common/CommonStyles";
 
 export const Intro = ({ height }) => {
@@ -34,10 +35,10 @@ export const Intro = ({ height }) => {
           <ColorText
             colorMode={colorMode}
             fontSize={{
-              xs: "1.75rem",
+              xs: "1.5rem",
               sm: "1.75rem",
-              md: "2.5rem",
-              lg: "2.75rem",
+              md: "2.25rem",
+              lg: "3rem",
             }}
           >
             Hello There.
@@ -46,8 +47,8 @@ export const Intro = ({ height }) => {
             component="h1"
             fontSize={{
               xs: "2.25rem",
-              sm: "2.375rem",
-              md: "3.75rem",
+              sm: "2.625rem",
+              md: "3.375rem",
               lg: "4.5rem",
             }}
             colorMode={colorMode}
@@ -67,17 +68,18 @@ export const Intro = ({ height }) => {
             colorMode={colorMode}
             fontSize={{
               xs: "2.25rem",
-              sm: "2.375rem",
-              md: "3.75rem",
+              sm: "2.625rem",
+              md: "3.375rem",
               lg: "4.5rem",
             }}
           >
             A Software Engineer
           </IntroText>
-          <SubText colorMode={colorMode} margin="15px 0px">
-            Lorem ipsum dolor sit amet. Ut excepturi culpa ut recusandae vitae
-            ex omnis esse et voluptate aspernatur est error dolorem aut
-            veritatis beatae in impedit error.
+          <SubText colorMode={colorMode} margin="1.2vh 0px">
+            {" "}
+            amet. Ut excepturi culpa ut recusandae vitae ex omnis esse et
+            voluptate aspernatur est error dolorem aut veritatis beatae in
+            impedit error.
           </SubText>
           <MyButton
             colorMode={colorMode}
@@ -88,9 +90,7 @@ export const Intro = ({ height }) => {
             Resume
           </MyButton>
         </IntroGrid>
-        <PhotoGrid item xs={12} sm={6}>
-          <Typography>Intro 2</Typography>
-        </PhotoGrid>
+        <PhotoGrid item xs={12} sm={6}></PhotoGrid>
       </Grid>
     </HomeElement>
   );
@@ -100,6 +100,7 @@ const NameSpan = styled.span`
   && {
     &:hover {
       display: inline-flex;
+      -webkit-display: inline-flex;
       -webkit-animation: ${JelloHorz} 0.8s both;
       animation: ${JelloHorz} 0.8s both;
       color: ${(props) =>
@@ -110,7 +111,7 @@ const NameSpan = styled.span`
 
 const IntroText = styled(MyTypography)`
   && {
-    line-height: 1 !important;
+    line-height: 1.1 !important;
     color: ${(props) =>
       props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   }
@@ -120,7 +121,7 @@ const IntroGrid = styled(Grid)`
   text-align: start;
 `;
 
-const SubText = styled(MyTypography)`
+const SubText = styled(GeneralText)`
   color: ${(props) =>
     props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
 `;

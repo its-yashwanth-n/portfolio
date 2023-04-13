@@ -10,6 +10,7 @@ export const SECONDARY_BGD_COLOR = "#F2F1EF";
 
 export const PRIMARY_TXT_COLOR = "#F5F5F5";
 export const SECONDARY_TXT_COLOR = "#161513";
+
 export const PRIMARY_GREY_TEXT = "#8596A3";
 export const SECONDARY_GREY_TEXT = "#5E636E";
 
@@ -35,6 +36,31 @@ export const NoStyleLink = styled(ScrollLink)`
 export const MyTypography = styled(Typography)`
   && {
     font-family: ${PRIMARY_FONT};
+  }
+`;
+
+export const GeneralText = styled(Typography)`
+  && {
+    font-family: ${PRIMARY_FONT};
+    font-size: 16px;
+    @media (min-width: 900px) {
+      font-size: 18px;
+    }
+    color: ${(props) =>
+      props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
+  }
+`;
+
+export const GeneralLink = styled.a`
+  && {
+    font-size: 16px;
+    @media (min-width: 900px) {
+      font-size: 18px;
+    }
+    text-decoration: none;
+    cursor: pointer;
+    color: ${(props) =>
+      props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
   }
 `;
 
@@ -104,7 +130,7 @@ export const StyledList = styled.ul`
 export const ListItems = styled.li`
   &&& {
     cursor: pointer;
-    padding: 30% 0%;
+    padding: 40% 0%;
   }
 `;
 

@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { ScrollIndicator } from "../components/Home/Icons/ScrollIndicator";
 import Social from "../components/Home/Icons/Social";
 import Effect from "../components/Home/Icons/Effects";
+import Footer from "../components/Footer/Footer";
 
 export const Home = () => {
   return (
@@ -16,23 +17,20 @@ export const Home = () => {
       <NavigationBar />
       <Social />
       <Effect />
-      <MainContainer>
-        <Intro height={"90vh"} />
-        <ScrollIndicator height={"10vh"} />
+      <MainContainer id="main-content" maxWidth="xl">
+        <Intro height={"100vh"} />
+        {/* <ScrollIndicator height={"10vh"} /> */}
         <Skills height={"100vh"} />
         <Experience height={"100vh"} />
         <Projects height={"100vh"} />
         <Contact height={"100vh"} />
       </MainContainer>
+      <Footer />
     </>
   );
 };
 
 const MainContainer = styled(Container)`
-  & {
-    display: flex;
-    align-items: center;
-    flex-direction: columns;
-    max-width: 1400px !important;
-  }
+  display: flex;
+  align-items: center;
 `;
