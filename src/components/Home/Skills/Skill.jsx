@@ -1,18 +1,33 @@
-import { Grid, Paper, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { HomeElement } from "../../common/CommonStyles";
+import { SkillCard } from "./SkillCard";
+import { skillList } from "./SkillList";
+import styled from "styled-components";
 
-export const Skills = ({ height }) => {
+export const Skills = ({ minHeight }) => {
   return (
-    <HomeElement id="skills-section" name="skills" style={{ height: height }}>
-      <Grid container spacing={2}>
-        <Grid item sm={12} md={8}>
-          <Typography>Skill 1</Typography>
-          <Paper></Paper>
-        </Grid>
-        <Grid item sm={12} md={4}>
-          <Typography>Skill 2</Typography>
-        </Grid>
-      </Grid>
+    <HomeElement
+      id="skills-section"
+      name="skills"
+      style={{ minHeight: minHeight }}
+    >
+      <SkillsGrid container spacing={2}>
+        {skillList.map((skill) => (
+          <ChildGrid item xs={12} md={6} xl={4}>
+            <SkillCard category={skill.category} skills={skill.skills} />
+          </ChildGrid>
+        ))}
+      </SkillsGrid>
     </HomeElement>
   );
 };
+
+const SkillsGrid = styled(Grid)`
+  display: flex;
+  justify-content: center;
+`;
+
+const ChildGrid = styled(Grid)`
+  display: flex;
+  justify-content: center;
+`;
