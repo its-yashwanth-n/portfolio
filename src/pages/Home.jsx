@@ -19,12 +19,12 @@ export const Home = () => {
       <Social />
       <Effect />
       <MainContainer id="main-content" maxWidth="xl">
-        <Intro height={"100vh"} />
+        <Intro minHeight={"100vh"} />
         {/* <ScrollIndicator height={"10vh"} /> */}
-        <Skills height={"100vh"} />
-        <Experience height={"100vh"} />
-        <Projects height={"100vh"} />
-        <Contact height={"100vh"} />
+        <Skills minHeight={"100vh"} />
+        <Experience minHeight={"100vh"} />
+        <Projects minHeight={"100vh"} />
+        <Contact minHeight={"100vh"} />
       </MainContainer>
       <Footer />
     </React.Fragment>

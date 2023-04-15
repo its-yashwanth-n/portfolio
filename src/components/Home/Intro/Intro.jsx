@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { ModeContext } from "../../../App";
 import { DARK_THEME } from "../../common/CommonConstants";
 import { JelloHorz } from "../../common/CommonAnimations";
@@ -18,13 +18,17 @@ import {
   GeneralText,
 } from "../../common/CommonStyles";
 
-export const Intro = ({ height }) => {
+export const Intro = ({ minHeight }) => {
   const { colorMode } = useContext(ModeContext);
   const introString = ["I", "'", "m"];
   const nameString = ["Y", "a", "s", "h", "w", "a", "n", "t", "h", ",", " a"];
 
   return (
-    <HomeElement id="intro-section" name="intro" style={{ height: height }}>
+    <HomeElement
+      id="intro-section"
+      name="intro"
+      style={{ minHeight: minHeight }}
+    >
       <Grid
         container
         spacing={2}

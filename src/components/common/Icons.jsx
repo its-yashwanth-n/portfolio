@@ -46,7 +46,7 @@ export const SocialIcons = ({ iconId, iconLink, iconSize, ariaLabel }) => {
 
 let audio = new Audio("/price_of_freedom.mp3");
 
-export const SoundIcon = ({ iconSize, ariaLabel }) => {
+export const SoundIcon = ({ iconSize }) => {
   const { colorMode } = useContext(ModeContext);
   const [music, setMusic] = useState(false);
 

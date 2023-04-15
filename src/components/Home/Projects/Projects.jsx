@@ -1,12 +1,12 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import { HomeElement } from "../../common/CommonStyles";
 
-export const Projects = ({ height }) => {
+export const Projects = ({ minHeight }) => {
   return (
     <HomeElement
       id="projects-section"
       name="projects"
-      style={{ height: height }}
+      style={{ minHeight: minHeight }}
     >
       <Grid container spacing={2}>
         <Grid item sm={12} md={8}>

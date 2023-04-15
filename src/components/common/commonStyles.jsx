@@ -43,11 +43,11 @@ export const GeneralText = styled(Typography)`
   && {
     font-family: ${PRIMARY_FONT};
     font-size: 14px;
-    @media (min-width: 900px) {
-      font-size: 18px;
-    }
     @media (min-width: 450px) {
       font-size: 16px;
+    }
+    @media (min-width: 900px) {
+      font-size: 18px;
     }
     color: ${(props) =>
       props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
@@ -57,11 +57,11 @@ export const GeneralText = styled(Typography)`
 export const GeneralLink = styled.a`
   && {
     font-size: 14px;
-    @media (min-width: 900px) {
-      font-size: 18px;
-    }
     @media (min-width: 450px) {
       font-size: 16px;
+    }
+    @media (min-width: 900px) {
+      font-size: 18px;
     }
     text-decoration: none;
     cursor: pointer;
