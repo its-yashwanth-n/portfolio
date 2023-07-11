@@ -30,7 +30,7 @@ export const SocialIcons = ({ iconId, iconLink, iconSize, ariaLabel }) => {
   const { colorMode } = useContext(ModeContext);
   return (
     <LinkNoStyle
-      colorMode={colorMode}
+      colormode={colorMode}
       id={iconId}
       href={iconLink}
       aria-label={ariaLabel}
@@ -63,7 +63,7 @@ export const SoundIcon = ({ iconSize }) => {
   return (
     <SoundButton
       id="sound-icon"
-      colorMode={colorMode}
+      colormode={colorMode}
       onClick={playMusic}
       isPlaying={music}
       aria-label={music ? MUTE_LABEL : MUSIC_LABEL}
@@ -85,7 +85,7 @@ export const ThemeIcon = ({ iconSize }) => {
   return (
     <ThemeButton
       id="theme-icon"
-      colorMode={colorMode}
+      colormode={colorMode}
       onClick={handleThemeToggle}
       aria-label={colorMode === DARK_THEME ? LIGHT_MODE_LABEL : DARK_MODE_LABEL}
     >
@@ -105,10 +105,12 @@ const CommonIconButton = styled.button`
   border: none;
   cursor: pointer;
   color: ${(props) =>
-    props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
 `;
 
 const SoundButton = styled(CommonIconButton)`
+  color: ${(props) =>
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   &:hover {
     -webkit-animation: ${PulsateForward} 0.8s ease-in-out infinite both;
     animation: ${PulsateForward} 0.8s ease-in-out infinite both;
@@ -116,6 +118,8 @@ const SoundButton = styled(CommonIconButton)`
 `;
 
 const ThemeButton = styled(CommonIconButton)`
+  color: ${(props) =>
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   &:active {
     -webkit-animation: ${PuffOutCenter} 1.5s cubic-bezier(0.165, 0.84, 0.44, 1)
       both;
@@ -133,7 +137,7 @@ const LinkNoStyle = styled.a`
   display: inline-block;
   z-index: 1;
   color: ${(props) =>
-    props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   &:hover {
     -webkit-animation: ${PulsateForward} 0.8s ease-in-out infinite both;
     animation: ${PulsateForward} 0.8s ease-in-out infinite both;

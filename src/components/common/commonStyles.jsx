@@ -50,7 +50,7 @@ export const GeneralText = styled(Typography)`
       font-size: 18px;
     }
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
+      props.colormode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
   }
 `;
 
@@ -66,18 +66,18 @@ export const GeneralLink = styled.a`
     text-decoration: none;
     cursor: pointer;
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
+      props.colormode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
   }
 `;
 
 export const ColorText = styled(MyTypography)`
   && {
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
+      props.colormode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
   }
 `;
 
-export const OtherFont = styled(Typography)`
+export const OtherTypography = styled(Typography)`
   && {
     font-family: ${SECONDARY_FONT};
   }
@@ -97,7 +97,9 @@ export const HomeElement = styled(Element)`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    @media (min-width: 900px) {
+      padding: 0% 7%;
+    }
   }
 `;
 
@@ -107,18 +109,17 @@ export const MyButton = styled(Button)`
     padding: 1.5% 0%;
     width: 30%;
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+      props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
     border: 3px solid
-      ${(props) => (props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR)};
+      ${(props) => (props.colormode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR)};
     &:hover {
       background-color: ${(props) =>
-        props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
+        props.colormode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
       color: ${(props) =>
-        props.colorMode === DARK_THEME
+        props.colormode === DARK_THEME
           ? PRIMARY_TXT_COLOR
           : SECONDARY_TXT_COLOR};
     }
-    margin: auto;
     -webkit-transition: background-color 1s linear;
     -ms-transition: background-color 1s linear;
     transition: background-color 1s linear;

@@ -20,7 +20,7 @@ function App() {
     <ModeContext.Provider
       value={{ colorMode, setColorMode, isNavOpen, setNavOpen }}
     >
-      <Appdiv className="App" id="App" colorMode={colorMode}>
+      <Appdiv className="App" id="App" colormode={colorMode}>
         <Routes>
           {pageRoutes.map((page) => (
             <Route
@@ -48,9 +48,9 @@ export const pageRoutes = [
 const Appdiv = styled.div`
   && {
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
     background-color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_BGD_COLOR : SECONDARY_BGD_COLOR};
+    props.colormode === DARK_THEME ? PRIMARY_BGD_COLOR : SECONDARY_BGD_COLOR};
     -webkit-transition: background-color 1.2s linear;
     -ms-transition: background-color 1.2s linear;
     transition: background-color 1.2s linear;

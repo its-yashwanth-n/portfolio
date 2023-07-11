@@ -11,12 +11,12 @@ export const Skills = ({ minHeight }) => {
       name="skills"
       style={{ minHeight: minHeight }}
     >
-      <SkillsGrid container spacing={2}>
-        {skillList.map((skill) => (
+      <SkillsGrid container spacing={0}>
+        {/* {skillList.map((skill) => (
           <ChildGrid item xs={12} md={6} xl={4}>
             <SkillCard category={skill.category} skills={skill.skills} />
           </ChildGrid>
-        ))}
+        ))} */}
       </SkillsGrid>
     </HomeElement>
   );

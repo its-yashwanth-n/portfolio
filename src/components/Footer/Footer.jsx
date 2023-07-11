@@ -1,39 +1,46 @@
-import { Container } from "@mui/material";
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { DARK_THEME } from "../common/CommonConstants";
+import { Container } from "@mui/material";
+import { SlideInBtmAmt } from "../common/CommonAnimations";
 import {
-  GeneralLink,
+  GeneralText,
+  PRIMARY_FONT,
   PRIMARY_TXT_COLOR,
   SECONDARY_TXT_COLOR,
 } from "../common/CommonStyles";
 import { ModeContext } from "../../App";
+import { DARK_THEME } from "../common/CommonConstants";
 
-const PORTFOLIO_LINK = "https://github.com/its-yashwanth-n/portfolio";
-
-const Footer = () => {
+export const Footer = () => {
   const { colorMode } = useContext(ModeContext);
 
   return (
-    <MyFooter id="footer" as="footer" maxWidth="xl">
-      <FooterLink colorMode={colorMode} href={PORTFOLIO_LINK} target="_blank">
+    <StyledFooter variant="footer" id="footer">
+      <FooterText colormode={colorMode} variant="body1" gutterBottom>
         Built by Yashwanth Nagaraju
-      </FooterLink>
-    </MyFooter>
+      </FooterText>
+    </StyledFooter>
   );
 };
 
-export default Footer;
-
-const MyFooter = styled(Container)`
-  min-height: 2vh;
-  padding: 2vh 0vh;
+const StyledFooter = styled(Container)`
+  && {
+    max-width: 80vw;
+    z-index: -1;
+    min-height: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    -webkit-animation: ${SlideInBtmAmt};
+    animation: ${SlideInBtmAmt};
+    font-size: 18px;
+    font-family: ${PRIMARY_FONT};
+  }
 `;
 
-const FooterLink = styled(GeneralLink)`
-  &:hover {
-    text-decoration: underline;
+const FooterText = styled(GeneralText)`
+  && {
+    margin-top: 1%;
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+      props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   }
 `;

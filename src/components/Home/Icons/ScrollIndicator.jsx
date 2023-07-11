@@ -15,8 +15,8 @@ export const ScrollIndicator = ({ height }) => {
       <Grid>
         <Grid item xs={12}>
           <AniWrap>
-            <Mouse colorMode={colorMode}>
-              <Scroller colorMode={colorMode} />
+            <Mouse colormode={colorMode}>
+              <Scroller colormode={colorMode} />
             </Mouse>
           </AniWrap>
         </Grid>
@@ -50,7 +50,7 @@ const Mouse = styled.div`
   height: 50px;
   border: 3px solid
     ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+      props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   border-radius: 14px;
 `;
 
@@ -59,7 +59,7 @@ const Scroller = styled.div`
   height: 4px;
   border-radius: 2px;
   background: ${(props) =>
-    props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   position: relative;
   top: 10px;
   left: 12px;

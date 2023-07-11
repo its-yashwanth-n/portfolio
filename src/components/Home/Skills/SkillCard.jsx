@@ -20,15 +20,15 @@ export const SkillCard = ({ category, skills }) => {
   const { colorMode } = useContext(ModeContext);
 
   return (
-    <SkillPaper id="test" colorMode={colorMode} spacing={2}>
-      <SkillHeader as="h2" colorMode={colorMode}>
+    <SkillPaper id="" colormode={colorMode} spacing={2}>
+      <SkillHeader as="h2" colormode={colorMode}>
         {category}
       </SkillHeader>
       <SkillGrid container direction={{ xs: "column", sm: "row" }} spacing={2}>
         {skills.map((skill) => (
           <IconGrid item xs={12} sm={4} padding={"0"}>
             <SkillIcon iconName={skill.name} />
-            <SkillName colorMode={colorMode}>{skill.name}</SkillName>
+            <SkillName colormode={colorMode}>{skill.name}</SkillName>
           </IconGrid>
         ))}
       </SkillGrid>
@@ -38,13 +38,13 @@ export const SkillCard = ({ category, skills }) => {
 
 const SkillHeader = styled(MyTypography)`
   color: ${(props) =>
-    props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
 `;
 
 const SkillPaper = styled(Paper)`
   && {
     background-color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_BGD_COLOR : SECONDARY_BGD_COLOR};
+      props.colormode === DARK_THEME ? PRIMARY_BGD_COLOR : SECONDARY_BGD_COLOR};
     border: ${PRIMARY_GREY_TEXT} 3px solid;
     border-radius: 2rem;
     @media (min-width: 0px) {
@@ -75,7 +75,7 @@ const SkillName = styled(GeneralText)`
     text-transform: capitalise;
     font-family: ${PRIMARY_FONT}!important;
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
+      props.colormode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
   }
 `;
 

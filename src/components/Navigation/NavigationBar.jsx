@@ -21,7 +21,7 @@ import {
 } from "../common/CommonConstants";
 import {
   PRIMARY_GREY_TEXT,
-  OtherFont,
+  OtherTypography,
   SECONDARY_TXT_COLOR,
   BLUE_COLOR,
   NAV_PRIMARY_BGD_COLOR,
@@ -74,11 +74,11 @@ export const NavigationBar = () => {
 
   //blur other elements when mobile nav bar is active
   useEffect(() => {
-    if (isMobile && isNavOpen) {
-      elementArray.map((ele) => handleBlur(ele, "blur(4px)"));
-    } else {
-      elementArray.map((ele) => handleBlur(ele, "none"));
-    }
+    // if (isMobile && isNavOpen) {
+    //   elementArray.map((ele) => handleBlur(ele, "blur(4px)"));
+    // } else {
+    //   elementArray.map((ele) => handleBlur(ele, "none"));
+    // }
   }, [isMobile, isNavOpen, handleBlur]);
 
   // to close nav bar on scroll in mobile
@@ -126,11 +126,7 @@ export const NavigationBar = () => {
 
   return (
     <React.Fragment>
-      <StyledAppBar
-        id="navigation-bar"
-        position="fixed"
-        // component="nav"
-      >
+      <StyledAppBar id="navigation-bar" position="fixed" component="nav">
         <NavContainer maxWidth="inherit" sx={{ height: "fit-content" }}>
           <Toolbar disableGutters>
             <Logo isMobileDevice={isMobile} />
@@ -138,10 +134,11 @@ export const NavigationBar = () => {
               <Hamburger
                 id="mobile-hamburger-icon"
                 style={{ display: "flex-end" }}
+                label="Show menu"
                 toggled={isNavOpen}
                 toggle={setNavOpen}
                 duration={0.8}
-                size={26}
+                size={24}
                 color={
                   colorMode === DARK_THEME
                     ? PRIMARY_TXT_COLOR
@@ -155,7 +152,7 @@ export const NavigationBar = () => {
               {navRoutes.map((navElement) => (
                 <NavText
                   key={navElement.id}
-                  colorMode={colorMode}
+                  colormode={colorMode}
                   open={isNavOpen}
                   fontSize={{ md: "24px", lg: "28px" }}
                 >
@@ -168,7 +165,7 @@ export const NavigationBar = () => {
                     duration={500}
                   >
                     {navElement.name}
-                    <Span colorMode={colorMode}>( )</Span>
+                    <Span colormode={colorMode}>( )</Span>
                   </HomeLink>
                 </NavText>
               ))}
@@ -183,30 +180,28 @@ export const NavigationBar = () => {
         mountOnEnter
         unmountOnExit
       >
-        <SideNav id="mobile-nav-aside" colorMode={colorMode} open={isNavOpen}>
+        <SideNav id="mobile-nav-aside" colormode={colorMode} open={isNavOpen}>
           <MobileNav>
             {navRoutes.map((navElement) => (
-              <React.Fragment>
-                <NavText
+              <NavText
+                key={navElement.id}
+                colormode={colorMode}
+                open={isNavOpen}
+                fontSize={{ xs: "2.25rem", sm: "2.5rem" }}
+              >
+                <HomeLink
                   key={navElement.id}
-                  colorMode={colorMode}
-                  open={isNavOpen}
-                  fontSize={{ xs: "2.25rem", sm: "2.5rem" }}
+                  to={navElement.to}
+                  spy={true}
+                  smooth={true}
+                  onClick={handleClose}
+                  duration={500}
+                  tabIndex={1}
                 >
-                  <HomeLink
-                    key={navElement.id}
-                    to={navElement.to}
-                    spy={true}
-                    smooth={true}
-                    onClick={handleClose}
-                    duration={500}
-                    tabIndex={1}
-                  >
-                    {navElement.name}
-                    <Span colorMode={colorMode}>( )</Span>
-                  </HomeLink>
-                </NavText>
-              </React.Fragment>
+                  {navElement.name}
+                  <Span colormode={colorMode}>( )</Span>
+                </HomeLink>
+              </NavText>
             ))}
             <IconContainer id="mobile-icons-div">
               <SocialIcons
@@ -251,13 +246,13 @@ const StyledBox = styled(Box)`
   }
 `;
 
-const NavText = styled(OtherFont)`
+const NavText = styled(OtherTypography)`
   && {
     color: ${(props) =>
-      props.colorMode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
+      props.colormode === DARK_THEME ? PRIMARY_GREY_TEXT : SECONDARY_GREY_TEXT};
     &:hover {
       color: ${(props) =>
-        props.colorMode === DARK_THEME
+        props.colormode === DARK_THEME
           ? PRIMARY_TXT_COLOR
           : SECONDARY_TXT_COLOR};
     }
@@ -281,15 +276,18 @@ const SideNav = styled.aside`
     -moz-box-align: center;
     align-items: center;
     background-color: ${(props) =>
-      props.colorMode === DARK_THEME
+      props.colormode === DARK_THEME
         ? NAV_PRIMARY_BGD_COLOR
         : NAV_SECONDARY_BGD_COLOR};
     overflow-x: hidden;
-    box-shadow: -10px 0px 30px -15px ${(props) => (props.colorMode === DARK_THEME ? PRIMARY_BGD_COLOR : SECONDARY_BGD_COLOR)};
+    box-shadow: -10px 0px 30px -15px ${(props) => (props.colormode === DARK_THEME ? PRIMARY_BGD_COLOR : PRIMARY_BGD_COLOR)};
     @media (min-width: 900px) {
       display: none;
     }
     @media (min-width: 465px) {
+      -webkit-transition: background-color 1.2s linear;
+      -ms-transition: background-color 1.2s linear;
+      transition: background-color 1.2s linear;
       width: 60%;
     }
   }
@@ -307,7 +305,7 @@ const MobileNav = styled.nav`
 
 const Span = styled.span`
   color: ${(props) =>
-    props.colorMode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
+    props.colormode === DARK_THEME ? BLUE_COLOR : PURPLE_COLOR};
 `;
 
 const IconContainer = styled(Container)`

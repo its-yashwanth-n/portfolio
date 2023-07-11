@@ -24,7 +24,7 @@ export const Logo = ({ isMobileDevice }) => {
       tabIndex={1}
     >
       <LogoImage
-        colorMode={colorMode}
+        colormode={colorMode}
         width={isMobileDevice ? 80 : 96}
         height={isMobileDevice ? 70 : 84}
         isMobileDevice={isMobileDevice}
@@ -38,7 +38,7 @@ export const Logo = ({ isMobileDevice }) => {
 
 const LogoImage = styled.img`
   color: ${(props) =>
-    props.colorMode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
+    props.colormode === DARK_THEME ? PRIMARY_TXT_COLOR : SECONDARY_TXT_COLOR};
   font-family: ${ALT_FONT};
   font-size: ${(props) => (props.isMobileDevice ? "2.25rem" : "3.5rem")};
 `;
